@@ -9,8 +9,8 @@ class App {
     this.handleCreateGradeError = this.handleCreateGradeError.bind(this)
     this.handleCreateGradeSuccess = this.handleCreateGradeSuccess.bind(this)
   }
-  createGrade(name, course, grade){
-    console.log(name, course, grade);
+  createGrade(userName, course, grade){
+    console.log(userName, course, grade);
   }
 
   handleCreateGradeError(error){
@@ -35,7 +35,7 @@ class App {
     var average = total/grades.length;
     this.pageHeader.updateAverage(average)
     console.log(average)
-    this.handleGetGradesSuccess.getGrades();
+    // this.getGrades(); why did you write this here dumbass
   }
 
   getGrades(){
@@ -51,6 +51,8 @@ class App {
   }
 
   start(){
+    // this.createGrade = this.gradeForm.onSubmit();
+    this.gradeForm.onSubmit(this.createGrade)
     this.getGrades();//NEED TO CALL THIS FUNCTION
   }
 

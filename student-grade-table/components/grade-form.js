@@ -11,9 +11,13 @@ class GradeForm{
   }
   handleSubmit(event){
     event.preventDefault()
-    new FormData(event.target)
-    FormData.get(name, course, grade)
-    this.createGrade(name, course, grade)
+    // new FormData(event.target) WHY
+    var formData = new FormData(event.target)
+    var userName = formData.get('user-name')
+    var course = formData.get('user-course')
+    var grade = formData.get('user-grade')
+    //store the get methods into variables
+    this.createGrade(userName, course, grade)
     event.target.reset()
     console.log('hello noob');
   }

@@ -7,6 +7,7 @@
 //   }
 // }
   var header = document.querySelector('header')
+  console.log(header)
   var averageGrade = new PageHeader(header)
 
 
