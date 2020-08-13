@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-      <div class="container">
+      <div class="header-container">
         <div class="row">
             <div class="col-9">
               <h1>Student Grade Table</h1>
@@ -24,32 +24,39 @@
       </div>
   </header>
 
-<table class="table table-bordered table-hover">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">Student Name</th>
-      <th scope="col">Course</th>
-      <th scope="col">Grade</th>
-    </tr>
-  </thead>
-  <tbody>
-    <!-- <tr>
-      <td>Tim Berners-Lee</td>
-      <td> Web Development</td>
-      <td> 100</td>
-    </tr>
-    <tr>
-      <td>Scott Bowler</td>
-      <td>Web Development</td>
-      <td>100</td>
-    </tr>
-    <tr>
-      <td>Tim Davis</td>
-      <td>Web Development</td>
-      <td>50</td>
-    </tr> -->
-  </tbody>
-</table>
+<div class="table-input-container">
+  <div class="row">
+    <div class="col-8">
+      <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Student Name</th>
+            <th scope="col">Course</th>
+            <th scope="col">Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- <tr>
+            <td>Tim Berners-Lee</td>
+            <td> Web Development</td>
+            <td> 100</td>
+          </tr>
+          <tr>
+            <td>Scott Bowler</td>
+            <td>Web Development</td>
+            <td>100</td>
+          </tr>
+          <tr>
+            <td>Tim Davis</td>
+            <td>Web Development</td>
+            <td>50</td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
 <script src="components/app.js"></script>
 <script src="components/grade-table.js"></script>
