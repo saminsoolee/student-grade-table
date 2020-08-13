@@ -10,8 +10,22 @@ class App {
     this.handleCreateGradeSuccess = this.handleCreateGradeSuccess.bind(this)
   }
   createGrade(userName, course, grade){
-    console.log(userName, course, grade);
-  }
+    console.log(userName, course, grade)
+      $.ajax({
+        data: {
+          "name": userName,
+          "course": course,
+          "grade": grade
+        },
+        headers: {
+          "X-Access-Token": "m9u5inMp"
+        },
+        type: 'POST',
+        url: 'https://sgt.lfzprototypes.com/api/grades',
+        success: this.handleCreateGradeSuccess,
+        error: this.handleCreateGradeError
+      })
+    }
 
   handleCreateGradeError(error){
     console.error(error)
