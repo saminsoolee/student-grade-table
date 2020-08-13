@@ -6,7 +6,11 @@
 //     this.handleStart = handleStart;
 //   }
 // }
+  var header = document.querySelector('header')
+  var averageGrade = new PageHeader(header)
+
+
   var table = document.querySelector('table');
   var gradeTable = new GradeTable(table)
-  var app = new App(gradeTable)
+  var app = new App(gradeTable, averageGrade)
   app.start()
