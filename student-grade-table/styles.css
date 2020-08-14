@@ -1,3 +1,8 @@
+body {
+  max-width: 1000px;
+  margin: auto;
+}
+
 th {
   text-align: center;
 }
@@ -14,4 +19,8 @@ th {
 .buttons-container {
   display: flex;
   justify-content: flex-end;
+}
+
+.add-button {
+  margin-right: 10px;
 }

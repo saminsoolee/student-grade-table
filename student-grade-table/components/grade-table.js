@@ -1,32 +1,45 @@
 class GradeTable {
-  constructor(tableElement, grades){
+  constructor(tableElement, noGradesElement){
+    this.noGradesElement = noGradesElement;
     this.tableElement = tableElement;
   }
+  onDeleteClick(deleteGrade){
+    this.deleteGrade = deleteGrade;
+  }
+
+  renderGradeRow(data, deleteGrade){
+    var gradesRow = document.createElement('tr');
+    var gradesName = document.createElement('td');
+    var gradesCourse = document.createElement('td');
+    var gradesGrade = document.createElement('td');
+    var gradesButtonContainer = document.createElement('td');
+    var gradesButton = document.createElement('button')
+    gradesButton.className = "btn btn-secondary";
+    gradesButton.addEventListener('click', function(){
+      deleteGrade(data.id)
+    })
+
+    gradesName.textContent = data.name;
+    gradesCourse.textContent = data.course;
+    gradesGrade.textContent = data.grade;
+    gradesButton.textContent = "DELETE FOO";
+
+    gradesButtonContainer.append(gradesButton);
+    gradesRow.append(gradesName, gradesCourse, gradesGrade, gradesButtonContainer)
+    return gradesRow;
+  }
+
   updateGrades(grades){
-    console.log(grades)
-
-    // var tbody = document.querySelector(this.tableElement)
-    // tbody.textContent = '';
-    //   for(var i = 0; i < grades.length; i++){
-    //     var newTableRow = document.createElement('tr');
-    //     var newTableData = document.createElement('td');
-    //     newTableData = grades[i];
-
-    //   }
     var tbody = this.tableElement.querySelector('tbody');
+    if (grades.length === 0){
+      this.noGradesElement.classList.remove('d-none hidden')
+    } else {
+      this.noGradesElement.className = 'd-none hidden';
+    }
     tbody.textContent = '';
       for(var i = 0; i < grades.length; i++){
-        var newTableRow = document.createElement('tr');
-        var newName = document.createElement('td');
-        var newCourse = document.createElement('td');
-        var newGrade = document.createElement('td');
-
-        newName.textContent = grades[i].name;
-        newCourse.textContent = grades[i].course;
-        newGrade.textContent = grades[i].grade;
-
-        newTableRow.append(newName, newCourse, newGrade)
-        tbody.append(newTableRow)
+        var newRow = this.renderGradeRow(grades[i], this.deleteGrade);
+        tbody.append(newRow);
       }
     }
   }

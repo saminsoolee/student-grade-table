@@ -14,9 +14,9 @@
   var form = document.querySelector('form');
   var gradeForm = new GradeForm(form)
 
-
-
+  var noGradesPTag = document.querySelector('p');
   var table = document.querySelector('table');
-  var gradeTable = new GradeTable(table)
-  var app = new App(gradeTable, averageGrade, gradeForm)
+
+  var gradeTable = new GradeTable(table, noGradesPTag);
+  var app = new App(gradeTable, averageGrade, gradeForm);
   app.start()
